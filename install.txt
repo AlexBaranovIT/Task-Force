@@ -1,2 +1,2 @@
 In the terminal type following command and press 'Enter':
-pip install telebot openai 
+pip install telebot openai requests

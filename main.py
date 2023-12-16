@@ -22,6 +22,11 @@ import urllib.parse
 import random
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+TOKEN = 'TG-BOT-TOKEN'
+openai.api_key = 'OPENAI-API-KEY'
+NEWS_API_KEY = 'NEWS-API-KEY'
+open_weather_token = 'WEATHER-API-KEY'
+
 bot = telebot.TeleBot(TOKEN)
 
 # State management

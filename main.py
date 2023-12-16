@@ -1,3 +1,27 @@
+import openai
+import telebot
+import os
+import base64
+import schedule
+import time
+import threading
+import yfinance as yf
+import matplotlib
+matplotlib.use('Agg')  # Use a non-interactive backend
+import matplotlib.pyplot as plt
+import io
+import matplotlib.dates as mdates
+import matplotlib.ticker as mticker
+import dateutil.parser
+from datetime import datetime
+from PIL import Image, ImageDraw, ImageFont
+import requests
+import html
+import re
+import urllib.parse
+import random
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 bot = telebot.TeleBot(TOKEN)
 
 # State management

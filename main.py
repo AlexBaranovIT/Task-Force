@@ -22,10 +22,10 @@ import urllib.parse
 import random
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-TOKEN = 'TG-BOT-TOKEN'
-openai.api_key = 'OPENAI-API-KEY'
-NEWS_API_KEY = 'NEWS-API-KEY'
-open_weather_token = 'WEATHER-API-KEY'
+TOKEN = 'TG-BOT-TOKEN' # From @BotFather bot in Telegram
+openai.api_key = 'OPENAI-API-KEY' # From openai.com in API section
+NEWS_API_KEY = 'NEWS-API-KEY' # From https://newsapi.org website
+open_weather_token = 'WEATHER-API-KEY' # From https://openweathermap.org website
 
 bot = telebot.TeleBot(TOKEN)
 

@@ -913,4 +913,5 @@ def run_scheduler():
 # Run the scheduler in a separate thread
 threading.Thread(target=run_scheduler).start()
 
+
 bot.polling(none_stop=True)

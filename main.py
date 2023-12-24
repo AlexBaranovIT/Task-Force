@@ -24,11 +24,11 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from keepalive import keep_alive
 from openai import OpenAI
 
-TOKEN = 'YOUR_API'
-api_key = 'YOUR_API'
+TOKEN = 'YOUR_TELEGRAM_API' # From @BotFather in Telegram 
+api_key = 'YOUR_API' # From openai.com
 client = OpenAI(api_key=api_key)
-NEWS_API_KEY = 'YOUR_API
-open_weather_token = 'YOUR_API' 
+NEWS_API_KEY = 'YOUR_NEWS_API' # From https://newsapi.org
+open_weather_token = 'YOUR_WEATHER_API' # From https://openweathermap.org/api
 
 bot = telebot.TeleBot(TOKEN)
 

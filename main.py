@@ -693,7 +693,24 @@ def send_stock_info(chat_id, stock_ticker):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, 'Hi! This is your smart assistant! How can I help you today?')
+    # Creating a custom keyboard
+    markup = telebot.types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+    btn_chatgpt = telebot.types.KeyboardButton('/chatgpt')
+    btn_dalle = telebot.types.KeyboardButton('/dalle')
+    btn_news = telebot.types.KeyboardButton('/news')
+    btn_weather = telebot.types.KeyboardButton('/weather')
+    btn_quote = telebot.types.KeyboardButton('/quotes')
+    btn_facts = telebot.types.KeyboardButton('/facts')
+    btn_reminder = telebot.types.KeyboardButton('/reminder')
+    btn_stock = telebot.types.KeyboardButton('/stock_bot')
+    btn_tasks = telebot.types.KeyboardButton('/tasks')
+    btn_support = telebot.types.KeyboardButton('/support')
+
+    # Adding buttons to the markup
+    markup.add(btn_chatgpt, btn_dalle, btn_news, btn_weather, btn_quote, btn_facts, btn_reminder, btn_stock, btn_tasks, btn_support)
+
+    # Sending the message with the custom keyboard
+    bot.send_message(message.chat.id, 'Hi! This is your smart assistant! How can I help you today?', reply_markup=markup)
 
 
 def generate_image(prompt):

@@ -920,22 +920,28 @@ def handle_message(message):
             # Keep the state as 'stock_bot' for re-entry
 
     else:
-        bot.send_message(
-            message.chat.id, 'Use one of these to continue:\n\n'
-            "/chatgpt - Chat with an AI-based chatbot.\n"
-            "/dalle - Generate images based on your prompts.\n"
-            "/news - Get the latest news headlines.\n"
-            "/stock_bot - Track and receive updates on your favorite stocks.\n"
-            "/weather - Get current weather information for a specified city.\n"
-            "/addtask - Add a task to your to-do list.\n"
-            "/tasks - View and manage your tasks.\n"
-            "/quotes - Receive daily inspirational quotes.\n"
-            "/unsubscribe_quotes - Unsubscribe from daily quotes.\n"
-            "/reminder - Set up a personal reminder.\n"
-            "/subscribe_facts - Get daily interesting facts.\n"
-            "/unsubscribe_facts - Stop receiving daily facts.\n"
-            "/support - Get support and help information."
-        )
+    # Creating a custom regular keyboard
+        markup = telebot.types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        buttons = [
+            telebot.types.KeyboardButton('/chatgpt'),
+            telebot.types.KeyboardButton('/dalle'),
+            telebot.types.KeyboardButton('/news'),
+            telebot.types.KeyboardButton('/stock_bot'),
+            telebot.types.KeyboardButton('/weather'),
+            telebot.types.KeyboardButton('/addtask'),
+            telebot.types.KeyboardButton('/tasks'),
+            telebot.types.KeyboardButton('/quotes'),
+            telebot.types.KeyboardButton('/unsubscribe_quotes'),
+            telebot.types.KeyboardButton('/reminder'),
+            telebot.types.KeyboardButton('/facts'),
+            telebot.types.KeyboardButton('/support'),
+        ]
+
+        # Adding buttons to the markup
+        markup.add(*buttons)
+    
+        # Sending the message with the custom regular keyboard
+        bot.send_message(message.chat.id, 'Choose an option:', reply_markup=markup)
 
 
 def send_daily_news():

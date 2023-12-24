@@ -20,15 +20,17 @@ import html
 import re
 import urllib.parse
 import random
-from telebot import TeleBot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+from keepalive import keep_alive
+from openai import OpenAI
 
-TOKEN = 'TG-BOT-TOKEN' # From @BotFather bot in Telegram
-openai.api_key = 'OPENAI-API-KEY' # From openai.com in API section
-NEWS_API_KEY = 'NEWS-API-KEY' # From https://newsapi.org website
-open_weather_token = 'WEATHER-API-KEY' # From https://openweathermap.org website
+TOKEN = 'YOUR_API'
+api_key = 'YOUR_API'
+client = OpenAI(api_key=api_key)
+NEWS_API_KEY = 'YOUR_API
+open_weather_token = 'YOUR_API' 
 
-bot = TeleBot(TOKEN)
+bot = telebot.TeleBot(TOKEN)
 
 # State management
 user_state = {}
@@ -45,6 +47,8 @@ user_tasks = {}
 user_editing_state = {}
 
 subscribed_users_for_quotes = set()
+
+keep_alive()
 
 interesting_facts = [
     "Honey never spoils. Archaeologists have found pots of honey in 3,000-year-old Egyptian tombs that are still good to eat.",
@@ -705,13 +709,12 @@ def generate_image(prompt):
 
 def get_completion(prompt, model='gpt-4'):
     messages = [{"role": "user", "content": prompt}]
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model=model,
-        messages=messages,
-        max_tokens=2040,
-        temperature=0,
+        messages=messages
     )
-    return response.choices[0].message["content"]
+    # Access the message content properly
+    return response.choices[0].message.content
 
 
 @bot.message_handler(commands=['chatgpt'])
@@ -913,6 +916,5 @@ def run_scheduler():
 
 # Run the scheduler in a separate thread
 threading.Thread(target=run_scheduler).start()
-
 
 bot.polling(none_stop=True)

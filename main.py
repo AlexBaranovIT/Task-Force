@@ -747,10 +747,39 @@ def handle_stop(message):
     bot.send_message(message.chat.id, "ChatGPT session ended. How can I assist you further?")
 
 
+def generate_dalle_image(prompt):
+    try:
+        response = client.images.generate(
+            model="dall-e-3",
+            prompt=prompt,
+            size="1024x1024",
+            quality="standard",
+            n=1
+        )
+
+        # Accessing the image URL
+        image_url = response.data[0].url
+        return image_url
+    except Exception as e:
+        print(f"Error in generating image: {e}")
+        return None
+
 @bot.message_handler(commands=['dalle'])
 def handle_dalle_input(message):
     set_user_state(message.chat.id, 'dalle')
-    bot.send_message(message.chat.id, "Enter a prompt for image generation:")
+    msg = bot.send_message(message.chat.id, "Enter a prompt for image generation:")
+    bot.register_next_step_handler(msg, receive_dalle_prompt)
+
+
+def receive_dalle_prompt(message):
+    user_id = message.chat.id
+    prompt = message.text
+    image_url = generate_dalle_image(prompt)
+    if image_url:
+        bot.send_photo(user_id, image_url)
+    else:
+        bot.send_message(user_id, "Sorry, I couldn't generate an image right now.")
+    set_user_state(user_id, None)  # Reset state after processing
 
 
 @bot.message_handler(commands=['quotes'])

@@ -1,2 +1,2 @@
 # Task Force
-## Usefull Telegram bot with numerous nice functionalities!
+## Usefull Telegram bot with numerous useful functionalities!

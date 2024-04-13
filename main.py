@@ -47,6 +47,7 @@ subscribed_users_for_facts = set()
 # List of user's tasks from Task Manager
 user_tasks = {}
 
+# State where user is now, needed for functions operation
 user_editing_state = {}
 
 subscribed_users_for_quotes = set()

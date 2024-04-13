@@ -50,6 +50,7 @@ user_tasks = {}
 # State where user is now, needed for functions operation
 user_editing_state = {}
 
+# Users subscribed for quotes
 subscribed_users_for_quotes = set()
 
 keep_alive()

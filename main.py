@@ -38,6 +38,7 @@ user_state = {}
 # User stock preferences
 user_stocks = {}
 
+# Temperature reminders
 temp_reminders = {}
 
 subscribed_users_for_facts = set()

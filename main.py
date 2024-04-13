@@ -44,6 +44,7 @@ temp_reminders = {}
 # List of users subscribed for the interesting facts
 subscribed_users_for_facts = set()
 
+# List of user's tasks from Task Manager
 user_tasks = {}
 
 user_editing_state = {}

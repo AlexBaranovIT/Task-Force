@@ -41,6 +41,7 @@ user_stocks = {}
 # Temperature reminders
 temp_reminders = {}
 
+# List of users subscribed for the interesting facts
 subscribed_users_for_facts = set()
 
 user_tasks = {}

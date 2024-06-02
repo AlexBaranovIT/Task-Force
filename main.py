@@ -23,6 +23,7 @@ import random
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from keepalive import keep_alive
 from openai import OpenAI
+import sleep
 
 TOKEN = 'YOUR_TELEGRAM_API' # From @BotFather in Telegram 
 api_key = 'YOUR_API' # From openai.com

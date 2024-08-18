@@ -80,7 +80,6 @@ interesting_facts = [
     "Snails can sleep for up to three years.",
     "The first computer virus was created in 1986 and was called Brain.",
     "A cat has 32 muscles in each ear.",
-    "A crocodile cannot stick out its tongue.",
     "A shrimp's heart is in its head.",
     "In Ancient Rome, when a man testified in court he would swear on his testicles.",
     "It is impossible for most people to lick their own elbow. (Try it!)",
